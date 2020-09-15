@@ -51,7 +51,7 @@ def predict_note_file1():
 
 @app.route('/predict_similar', methods=["POST"])
 def predict_note_file():
-    """Let's Authenticate the Banks Note
+    """Let's Cluster the Test cases for similarity Level
     This is using docstrings for specifications.
     ---
     parameters:
@@ -75,7 +75,6 @@ def predict_note_file():
     clustr = KMeans(init='k-means++', n_clusters=5, n_init=10)
     clustr.fit(features)
     df_test['cluster_labels'] = clustr.labels_
-    # df_tepist.to_csv(r'D:\test_cluster3.csv')
     output = StringIO()
     df_test.to_csv(output)
     return Response(output.getvalue(), mimetype="text/csv")
